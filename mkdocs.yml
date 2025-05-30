@@ -1,0 +1,148 @@
+site_name: 哀歌殇年的维基百科
+site_author: AGSN
+site_url: https://mcu.agsn.wiki/
+site_description: 个人百科文库，用于记录技术和项目内容。
+repo_url: https://github.com/liveldy/Wiki
+repo_name: liveldy/Wiki
+edit_uri: edit/main/docs/
+ 
+copyright: Copyright © 2024 - 2025 AGSN <br> Made with Material for MkDocs
+nav:
+  - 主页: index.md
+  - 程序设计语言: 
+    - language/ccpp.md
+    - language/oop.md
+    - language/obj.md
+    - language/cs.md
+  - 数据结构与算法:
+    - dsa/DataStructures.md
+    - dsa/AlgorithmsAnalysis.md
+    - dsa/Sets&LinearStructures.md
+  - 嵌入式开发:
+    - mcu/esp32/mpy.md
+  - 经典项目集锦:
+    - project
+ 
+docs_dir: docs
+site_dir: site
+
+extra_css: []
+extra_javascript: 
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+extra_templates: []
+
+use_directory_urls: true
+dev_addr: 127.0.0.1:80
+
+hooks: []
+
+plugins: 
+  - search
+  - tags
+
+theme:
+  name: material
+  language: zh
+  font: false
+  logo: assets/logo.jpg
+  favicon: assets/logo.jpg
+  homepage: https://mcu.agsn.wiki/
+  icon:
+    annotation: material/arrow-right-circle
+  palette: 
+  
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: 智能模式
+        
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 亮色模式
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: 暗色模式
+  
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.prune
+    - navigation.indexes
+    - toc.follow
+    - toc.integrate 
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+    - announce.dismiss
+    - navigation.footer
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+    - content.action.view
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/liveldy
+      name: GitHub
+      
+markdown_extensions:
+  - abbr
+  - admonition
+  - pymdownx.details
+  - pymdownx.blocks.caption
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      auto_title: true
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      auto_append:
+        - includes/celebrity.md
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - footnotes
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
