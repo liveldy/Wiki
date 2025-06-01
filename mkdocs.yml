@@ -17,7 +17,12 @@ nav:
   - 数据结构与算法:
     - dsa/DataStructures.md
     - dsa/AlgorithmsAnalysis.md
-    - dsa/Sets&LinearStructures.md
+    - dsa/LinearStructures.md
+    - dsa/Tree.md
+    - dsa/Graph.md
+    - dsa/Search.md
+    - dsa/Sort.md
+    - dsa/Index.md
   - 嵌入式开发:
     - mcu/esp32/mpy.md
   - 经典项目集锦:
@@ -39,7 +44,9 @@ dev_addr: 127.0.0.1:80
 hooks: []
 
 plugins: 
-  - search
+  - search:
+      lang: zh
+      lang: en
   - tags
 
 theme:
