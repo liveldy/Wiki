@@ -1,6 +1,6 @@
 ---
 title: C++面向对象
-subtitle: 面向对象
+subtitle: 面向对象与文件流处理
 description: C++面向对象
 ---
 
