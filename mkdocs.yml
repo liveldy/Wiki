@@ -20,9 +20,9 @@ nav:
     - dsa/LinearStructures.md
     - dsa/Tree.md
     - dsa/Graph.md
-    - dsa/Search.md
-    - dsa/Sort.md
-    - dsa/Index.md
+    - dsa/SpecialDataStructures.md
+    - dsa/String.md
+    - dsa/Dp.md
   - 嵌入式开发:
     - mcu/esp32/mpy.md
   - 经典项目集锦:
