@@ -9,11 +9,17 @@ edit_uri: edit/main/docs/
 copyright: Copyright © 2024 - 2025 AGSN <br> Made with Material for MkDocs
 nav:
   - 主页: index.md
+  - 操作系统:
+    - os/index.md
+    - Windows:
+      - os/windows/base.md
   - 程序设计语言: 
-    - language/ccpp.md
-    - language/oop.md
-    - language/obj.md
-    - language/cs.md
+    - language/index.md
+    - C/C++/C#:
+      - language/cps/c.md
+      - language/cps/cpp.md
+      - language/cps/obj.md
+      - language/cps/cs.md
   - 数据结构与算法:
     - dsa/DataStructures.md
     - dsa/AlgorithmsAnalysis.md
@@ -23,9 +29,18 @@ nav:
     - dsa/SpecialDataStructures.md
     - dsa/String.md
     - dsa/Dp.md
+  - 电子电路:
+    - 数字电子技术:
+      - circuitry/dc/base.md
+      - circuitry/dc/clc.md
+      - circuitry/dc/slc.md
+    - 模拟电子技术:
+      - circuitry/ac/base.md
   - 嵌入式开发:
-    - mcu/esp32/mpy.md
-  - 经典项目集锦:
+    - mcu/index.md
+    - ESP32:
+      - mcu/esp32/mpy.md
+  - 个人项目集锦:
     - project
  
 docs_dir: docs
