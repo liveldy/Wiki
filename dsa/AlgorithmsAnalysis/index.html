@@ -1,0 +1,1712 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="算法分析与思想">
+      
+      
+        <meta name="author" content="AGSN">
+      
+      
+        <link rel="canonical" href="https://liveldy.github.io/Wiki/dsa/AlgorithmsAnalysis/">
+      
+      
+        <link rel="prev" href="../DataStructures/">
+      
+      
+        <link rel="next" href="../LinearStructures/">
+      
+      
+      <link rel="icon" href="../../assets/logo.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>算法分析与思想 - 哀歌殇年的维基百科</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M22%2012a10%2010%200%200%201-10%2010A10%2010%200%200%201%202%2012%2010%2010%200%200%201%2012%202a10%2010%200%200%201%2010%2010M6%2013h8l-3.5%203.5%201.42%201.42L17.84%2012l-5.92-5.92L10.5%207.5%2014%2011H6z%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="哀歌殇年的维基百科" class="md-header__button md-logo" aria-label="哀歌殇年的维基百科" data-md-component="logo">
+      
+  <img src="../../assets/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            哀歌殇年的维基百科
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              算法分析与思想
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="智能模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="智能模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="亮色模式" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="暗色模式"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="暗色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/liveldy/Wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    liveldy/Wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../os/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  操作系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../language/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  程序设计语言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../DataStructures/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数据结构与算法
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../circuitry/dc/base/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  电子电路
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mcu/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  嵌入式开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../project" class="md-tabs__link">
+          
+  
+  
+    
+  
+  个人项目集锦
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="哀歌殇年的维基百科" class="md-nav__button md-logo" aria-label="哀歌殇年的维基百科" data-md-component="logo">
+      
+  <img src="../../assets/logo.jpg" alt="logo">
+
+    </a>
+    哀歌殇年的维基百科
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/liveldy/Wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    liveldy/Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    主页
+    
+      <br>
+      <small>主页</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../os/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    操作系统
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../language/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    程序设计语言
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构与算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataStructures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    数据结构
+    
+      <br>
+      <small>数据结构、抽象数据类型</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    算法分析与思想
+    
+      <br>
+      <small>算法性质与表示、渐进复杂度、均摊分析</small>
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    算法分析与思想
+    
+      <br>
+      <small>算法性质与表示、渐进复杂度、均摊分析</small>
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法及其表示
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="算法及其表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法及其性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法的表示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      渐进复杂度
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="渐进复杂度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法的效率
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      渐进复杂度及其性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mt" class="md-nav__link">
+    <span class="md-ellipsis">
+      主定理（MT）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      均摊分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="均摊分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      聚合分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      记账分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      势能分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法思想
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="算法思想">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      模拟
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      分治
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      贪心
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LinearStructures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    线性结构
+    
+      <br>
+      <small>线性表、栈与队列</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    树
+    
+      <br>
+      <small>树、堆及其应用</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    图
+    
+      <br>
+      <small>图论及其应用</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SpecialDataStructures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    特殊数据结构
+    
+      <br>
+      <small>散列表、稀疏表、跳表</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../String/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    字符串
+    
+      <br>
+      <small>字符串</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    动态规划
+    
+      <br>
+      <small>各类动态规划问题</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../circuitry/dc/base/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    电子电路
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../mcu/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    嵌入式开发
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../project" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    个人项目集锦
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/liveldy/Wiki/edit/main/docs/dsa/AlgorithmsAnalysis.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/liveldy/Wiki/raw/main/docs/dsa/AlgorithmsAnalysis.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="_1">算法分析与思想</h1>
+<h2 id="_2">算法及其表示</h2>
+<h3 id="_3">算法及其性质</h3>
+<p><strong>算法</strong>是对特定问题求解步骤的一种描述，是指令的有限序列。通常一个问题可以有多种算法，而一个算法可以求解某个特定的问题。算法满足下面5个性质：</p>
+<ol>
+<li>输入：一个算法有零个或多个输入（即算法可以没有输入），这些输入通常取自于某个特定的对象集合。</li>
+<li>输出：一个算法有一个或多个输出（即算法必须有输出），通常输入和输出之间有某种特定的关系。</li>
+<li>有穷性（有限性）：一个算法必须在执行有穷步之后结束，且每一步都在有穷时间内完成。</li>
+<li>确定性：算法中的每一条指令必须有确切的含义，不存在二义性。并且，在任何条件下，对于相同的输入只能得到相同的输出。</li>
+<li>可行性（有效性）：算法描述的操作可以通过已经实现的基本操作执行有限次来实现。</li>
+</ol>
+<p>一个符合规范的算法除了以上5个性质外，还需要具备以下特性：</p>
+<ol>
+<li>正确性：算法能满足具体问题的需求，对于任何合法的输入，算法都会得出正确的结果。</li>
+<li>健壮性（鲁棒性）：算法对于非法输入应能识别并做出处理，而不是产生错误行为或者陷入瘫痪。</li>
+<li>简单性：算法容易理解和实现，不能追求复杂和冗余。</li>
+<li>抽象分级：算法应该进行模块化和进行抽象分级，即使是大体量的算法，也能方便地阅读、理解、使用和修改。</li>
+<li>高效性：算法应该尽可能地使用更少的空间和更短的时间，是衡量算法优劣的重要标准。</li>
+</ol>
+<h3 id="_4">算法的表示</h3>
+<p><strong>程序</strong>是对一个算法使用某种程序设计语言的具体实现，原则上算法可以用任何一种程序设计语言实现。但并非所有的计算机程序都是算法，相反，可能一个计算机程序没有任何算法，也可能由很多算法组成。</p>
+<p>常用的描述算法的方法有自然语言、流程图、程序设计语言和伪代码等。下面以 <abbr title="欧几里得（Euclid，约公元前325年~公元前265年）是古希腊著名的数学家，被誉为“几何之父”。他最著名的著作是《几何原本》，这部书奠定了几何学的基础，影响了后世的科学文化发展。他曾在亚历山大城从事数学教学和研究工作，严谨治学，提出了五大公设，成为历史上最成功的教科书之一。">欧几里得</abbr> 算法（辗转相除法）为例进行介绍。</p>
+<ul>
+<li>自然语言</li>
+</ul>
+<p>自然语言描述算法，容易理解但是也容易出现二义性，并且描述通常会很冗长。欧几里得算法用自然语言描述如下：</p>
+<p>步骤1：将m除以n得到余数r；</p>
+<p>步骤2：若r等于0，则n为最大公约数，算法结束；否则执行步骤3；</p>
+<p>步骤3：将n的值放在m中，将r的值放在n中，重新执行步骤1。</p>
+<ul>
+<li>流程图</li>
+</ul>
+<p>流程图描述算法，直观易懂但是严密性不如抽象设计语言，灵活性不如自然语言。欧几里得算法用流程图描述如图。</p>
+<ul>
+<li>伪代码</li>
+</ul>
+<p><strong>伪代码</strong>是介于自然语言和程序设计语言之间的方法，伪代码不是实际的编程语言，但在表达能力上类似于编程语言，同时又极小化了描述算法所不需要的技术细节。欧几里得算法用伪代码描述如下：</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>r=m%n
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>while r!=0
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>m=n
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>n=r
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>r=m%n
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>return n
+</span></code></pre></div></td></tr></table></div>
+<p>算法体现的是一种计算思想，“数据结构与算法”部分不会拘泥于语法，除“完整示例”外，我们一律采用伪代码表示。这类伪代码接近C++但同时去掉了一些不必要的部分。</p>
+<ul>
+<li>程序设计语言</li>
+</ul>
+<p>程序设计语言描述的算法能够直接被计算机执行，但抽象性差。欧几里得算法用C++描述如下：</p>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">欧几里得算法</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">CommonFactor</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="p">}</span><span class="w"> </span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="_5">渐进复杂度<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></h2>
+<h3 id="_6">算法的效率</h3>
+<p>一个算法所消耗的资源在以下4个方面：</p>
+<ol>
+<li>时间：算法的执行需要消耗时间。</li>
+<li>空间：算法在执行时，往往会进行空间的分配和使用，在计算机上主要体现为内存的占用。</li>
+<li>数据传输量：算法会涉及数据传输或者网络消耗。</li>
+<li>耗电量：算法最终都是在电子设备上运行的，因此也会有电量的消耗。</li>
+</ol>
+<p>对于某些算法，即使输入规模相同，如果输入数据不同，则其时间开销也不同。例如（从n个元素中）顺序查找算法，从第一个元素开始，依次比较每一个元素，直至查找到待查找元素为止。如果待查找元素恰好在第一个，则算法只需要比较第一个元素就行了，这是<strong>最好情况</strong>；如果待查找元素在最后一个，则算法必须比较n－1个元素，这是<strong>最坏情况</strong>；假设数据等概率分布，则平均要比较n/2个元素，这是<strong>平均情况</strong>。</p>
+<p>度量一个算法的效率，可以通过事前分析和事后测试（事后统计）的方法，事后测试是指将算法实现编写成程序，如何输入适当的数据运行，测算其时间和空间开销。同一个算法在不同的计算机上运行的速度会有一定的差别，并且实际运行速度难以在理论上进行计算，实际去测量又比较麻烦，所以我们通常考虑的不是算法运行的实际用时，而是算法运行所需要进行的基本操作的数量，而事前分析的方法即为渐进复杂度。</p>
+<h3 id="_7">渐进复杂度及其性质</h3>
+<p>渐进复杂度是指在算法分析中用来描述算法运行时间或空间需求如何随着输入规模增加而增加的一种数学模型。<strong>输入规模（数据规模）</strong>是指输入量的多少，通常用n表示，一般可以从描述的问题中得到，且输入规模越大算法就需要越长的运行时间。<strong>基本语句</strong>是指执行次数与整个算法的执行次数成正比的语句，基本语句对算法运行时间的贡献最大，是算法中重要的操作。</p>
+<p>算法的<strong>时间复杂度</strong>是其运行所需的计算时间，算法的<strong>空间复杂度</strong>是其运行所需的存储空间。算法中基本语句的执行次数在渐进意义下的阶，称为算法的<strong>渐进复杂度</strong>。<strong>渐进符号</strong>是函数的阶的规范描述。简单来说，渐进符号忽略了一个函数中增长较慢的部分以及各项的系数，而保留了可以用来表明该函数增长趋势的重要部分。</p>
+<p>大<span class="arithmatex">\(Ο\)</span>符号（<strong>渐进上界</strong>）：对于函数<span class="arithmatex">\(f(n)\)</span>和<span class="arithmatex">\(g(n)\)</span>,<span class="arithmatex">\(f(n)=Ο(g(n))\)</span>,当且仅当<span class="arithmatex">\(\exists c,n_0&gt;0\)</span>,使得<span class="arithmatex">\(\forall n \geq n_0\)</span>,<span class="arithmatex">\(0 \leq f(n) \leq c \cdot g(n)\)</span>.</p>
+<p>大<span class="arithmatex">\(\Omega\)</span>符号（<strong>渐进下界</strong>）：对于函数<span class="arithmatex">\(f(n)\)</span>和<span class="arithmatex">\(g(n)\)</span>,<span class="arithmatex">\(f(n)=\Omega(g(n))\)</span>,当且仅当<span class="arithmatex">\(\exists c,n_0&gt;0\)</span>,使得<span class="arithmatex">\(\forall n \geq n_0\)</span>,<span class="arithmatex">\(0 \leq c \cdot g(n) \leq f(n)\)</span>.</p>
+<p>大<span class="arithmatex">\(\Theta\)</span>符号（<strong>渐进界</strong>）：对于函数<span class="arithmatex">\(f(n)\)</span>和<span class="arithmatex">\(g(n)\)</span>,<span class="arithmatex">\(f(n)=\Theta(g(n))\)</span>,当且仅当<span class="arithmatex">\(\exists c_1,c_2,n_0&gt;0\)</span>,使得<span class="arithmatex">\(\forall n \geq n_0\)</span>,<span class="arithmatex">\(0 \leq c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n)\)</span>.</p>
+<p>小<span class="arithmatex">\(o\)</span>符号：对于函数<span class="arithmatex">\(f(n)\)</span>和<span class="arithmatex">\(g(n)\)</span>,<span class="arithmatex">\(f(n)=o(g(n))\)</span>,当且仅当<span class="arithmatex">\(\exists c,n_0&gt;0\)</span>,使得<span class="arithmatex">\(\forall n \geq n_0\)</span>,<span class="arithmatex">\(0 \leq f(n) &lt; c \cdot g(n)\)</span>.</p>
+<p>小<span class="arithmatex">\(\omega\)</span>符号：对于函数<span class="arithmatex">\(f(n)\)</span>和<span class="arithmatex">\(g(n)\)</span>,<span class="arithmatex">\(f(n)=\omega(g(n))\)</span>,当且仅当<span class="arithmatex">\(\exists c,n_0&gt;0\)</span>,使得<span class="arithmatex">\(\forall n \geq n_0\)</span>,<span class="arithmatex">\(0 \leq c \cdot g(n) &lt; f(n)\)</span>.</p>
+<p>渐进复杂度的常用性质：</p>
+<ul>
+<li><span class="arithmatex">\(f(n) = \Theta(g(n))\iff f(n)=O(g(n))\land f(n)=\Omega(g(n))\)</span></li>
+<li><span class="arithmatex">\(f_1(n) + f_2(n) = O(\max(f_1(n), f_2(n)))\)</span></li>
+<li><span class="arithmatex">\(f_1(n) \times f_2(n) = O(f_1(n) \times f_2(n))\)</span></li>
+<li><span class="arithmatex">\(\forall a \neq 1, \log_a{n} = O(\log_2 n)\)</span>。由换底公式可以得知，任何对数函数无论底数为何，都具有相同的增长率，因此渐进时间复杂度中对数的底数一般省略不写。</li>
+</ul>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span>
+<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;hello world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>如果以输入的数值 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(m\)</span> 的大小作为数据规模，则上面这段代码的时间复杂度为 <span class="arithmatex">\(\Theta(n^2m)\)</span>。</p>
+<h3 id="mt">主定理（MT）</h3>
+<p><strong>主定理（Master Theorem）</strong>可以快速求得关于递归算法的复杂度。 主定理递推关系式如下：
+如果</p>
+<div class="arithmatex">\[
+T(n) = a T\left(\frac{n}{b}\right)+f(n)\qquad \forall n &gt; b
+\]</div>
+<p>那么</p>
+<div class="arithmatex">\[
+T(n) = \begin{cases}\Theta(n^{\log_b a}) &amp; f(n) = O(n^{\log_b (a)-\epsilon}),\epsilon &gt; 0 \\ \Theta(f(n)) &amp; f(n) = \Omega(n^{\log_b (a)+\epsilon}),\epsilon\ge 0\\ \Theta(n^{\log_b a}\log^{k+1} n) &amp; f(n)=\Theta(n^{\log_b a}\log^k n),k\ge 0 \end{cases}
+\]</div>
+<details class="note">
+<summary>证明</summary>
+<p>依据上文提到的证明思路，具体证明过程如下</p>
+<p>对于第 <span class="arithmatex">\(0\)</span> 层（最高层），合并子问题需要花费 <span class="arithmatex">\(f(n)\)</span> 的时间</p>
+<p>对于第 <span class="arithmatex">\(1\)</span> 层（第一次划分出来的子问题），共有 <span class="arithmatex">\(a\)</span> 个子问题，每个子问题合并需要花费 <span class="arithmatex">\(f\left(\frac{n}{b}\right)\)</span> 的时间，所以合并总共要花费 <span class="arithmatex">\(a f\left(\frac{n}{b}\right)\)</span> 的时间。</p>
+<p>层层递推，我们可以写出类推树如下：<img alt="" src="../../images/master-theorem-proof.svg" /></p>
+<p>这棵树的高度为 <span class="arithmatex">\({\log_b n}\)</span>，共有 <span class="arithmatex">\(n^{\log_b a}\)</span> 个叶子，从而 <span class="arithmatex">\(T(n) = \Theta(n^{\log_b a}) + g(n)\)</span>，其中 <span class="arithmatex">\(g(n) = \sum_{j = 0}^{\log_{b}{n - 1}} a^{j} f(n / b^{j})\)</span>。</p>
+<p>针对于第一种情况：<span class="arithmatex">\(f(n) = O(n^{\log_b a-\epsilon})\)</span>，因此 <span class="arithmatex">\(g(n) = O(n^{\log_b a})\)</span>。</p>
+<p>对于第二种情况而言：首先 <span class="arithmatex">\(g(n) = \Omega(f(n))\)</span>，又因为 <span class="arithmatex">\(a f(\dfrac{n}{b}) \leq c f(n)\)</span>，只要 <span class="arithmatex">\(c\)</span> 的取值是一个足够小的正数，且 <span class="arithmatex">\(n\)</span> 的取值足够大，因此可以推导出：<span class="arithmatex">\(g(n) = O(f(n)\)</span>)。两侧夹逼可以得出，<span class="arithmatex">\(g(n) = \Theta(f(n))\)</span>。</p>
+<p>而对于第三种情况：<span class="arithmatex">\(f(n) = \Theta(n^{\log_b a})\)</span>，因此 <span class="arithmatex">\(g(n) = O(n^{\log_b a} {\log n})\)</span>。<span class="arithmatex">\(T(n)\)</span> 的结果可在 <span class="arithmatex">\(g(n)\)</span> 得出后显然得到。</p>
+</details>
+<p>下面举几个例子来说明主定理如何使用。</p>
+<ol>
+<li>
+<p><span class="arithmatex">\(T(n) = 2T\left(\frac{n}{2}\right) + 1\)</span>，那么 <span class="arithmatex">\(a=2, b=2, {\log_2 2} = 1\)</span>，那么 <span class="arithmatex">\(\epsilon\)</span> 可以取值在 <span class="arithmatex">\((0, 1]\)</span> 之间，从而满足第一种情况，所以 <span class="arithmatex">\(T(n) = \Theta(n)\)</span>。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(T(n) = T\left(\frac{n}{2}\right) + n\)</span>，那么 <span class="arithmatex">\(a=1, b=2, {\log_2 1} = 0\)</span>，那么 <span class="arithmatex">\(\epsilon\)</span> 可以取值在 <span class="arithmatex">\((0, 1]\)</span> 之间，从而满足第二种情况，所以 <span class="arithmatex">\(T(n) = \Theta(n)\)</span>。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(T(n) = T\left(\frac{n}{2}\right) + {\log n}\)</span>，那么 <span class="arithmatex">\(a=1, b=2, {\log_2 1}=0\)</span>，那么 <span class="arithmatex">\(k\)</span> 可以取值为 <span class="arithmatex">\(1\)</span>，从而满足第三种情况，所以 <span class="arithmatex">\(T(n) = \Theta(\log^2 n)\)</span>。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(T(n) = T\left(\frac{n}{2}\right) + 1\)</span>，那么 <span class="arithmatex">\(a=1, b=2, {\log_2 1} = 0\)</span>，那么 <span class="arithmatex">\(k\)</span> 可以取值为 <span class="arithmatex">\(0\)</span>，从而满足第三种情况，所以 <span class="arithmatex">\(T(n) = \Theta(\log n)\)</span>。</p>
+</li>
+</ol>
+<h2 id="_8">均摊分析<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></h2>
+<p><strong>均摊分析（Amortized Analysis）</strong>也称为摊还分析，是一种用于分析算法和动态数据结构性能的技术。它不仅仅关注单次操作的成本，还通过评估一系列操作的平均成本，为整体性能提供更加准确的评估。均摊分析不涉及概率，且只能确保最坏情况性能的每次操作耗费的平均时间，并不能确认系统的平均性能。在最坏情况下，均摊分析通过将高成本操作的开销分摊到低成本操作上，确保整体操作的平均成本保持在合理范围内。</p>
+<p>均摊分析通常采用三种主要分析方法：聚合分析、记账分析和势能分析。这些方法各有侧重，分别适用于不同的场景，但它们的共同目标是通过均衡操作成本，优化数据结构在最坏情况下的整体性能表现。</p>
+<p>考虑一个可扩展的数组，例如 C++ 中的 <code>vector</code>，其初始容量为 <span class="arithmatex">\(m = 1\)</span>。每次插入新元素时，如果数组已满，则需要将数组的大小加倍，然后将原数组中的元素复制到新数组中，最后插入新元素。</p>
+<p>接下来，将以动态数组的插入操作为例，通过聚合分析、记账分析和势能分析三种方法，分析其均摊成本。</p>
+<h3 id="_9">聚合分析</h3>
+<p><strong>聚合分析（Aggregate Analysis）</strong>通过计算一系列操作的总成本，并将其平均到每次操作上，从而得出每次操作的均摊时间复杂度。</p>
+<p>以动态数组为例，首先，可以得到插入操作的两个关键成本：</p>
+<ul>
+<li>如果数组未满，插入操作的成本为 <span class="arithmatex">\(O(1)\)</span>。</li>
+<li>如果数组已满，则插入操作需要扩容，扩容后复制元素的成本为 <span class="arithmatex">\(O(m)\)</span>，其中 <span class="arithmatex">\(m\)</span> 为当前数组的大小。</li>
+</ul>
+<p>所以，为了计算 n 次插入操作的总成本，可以将其分开为两部分计算：</p>
+<ol>
+<li>插入操作的成本：每次插入新元素的直接成本是常数时间 <span class="arithmatex">\(O(1)\)</span>，对于 <span class="arithmatex">\(n\)</span> 次操作，总成本是 <span class="arithmatex">\(O(n)\)</span>。</li>
+<li>数组扩容的成本：每次扩容涉及到复制原数组元素到新数组。这些操作发生在数组大小为 <span class="arithmatex">\(1, 2, 4, \ldots , 2^k\)</span> 的时刻，其中 <span class="arithmatex">\(2^k\)</span> 是小于等于 <span class="arithmatex">\(n\)</span> 的最大幂。扩容操作的成本分别是 <span class="arithmatex">\(1, 2, 4, \ldots , 2^{k-1}\)</span>，总和为 <span class="arithmatex">\(1 + 2 + 4 + \ldots  + 2^{k-1} = 2^k - 1\)</span>，这是一个等比数列的和，其结果为 <span class="arithmatex">\(O(n)\)</span>。</li>
+</ol>
+<p>因此，该数组总的插入成本为 <span class="arithmatex">\(O(n)\)</span>，均摊到每次操作的成本为 <span class="arithmatex">\(O(1)\)</span>。即使在最坏情况下，平均每次插入操作的成本依然是常数时间。</p>
+<h3 id="_10">记账分析</h3>
+<p><strong>记账分析（Accounting Method）</strong>通过为每次操作预先分配一个固定的均摊成本来确保所有操作的总成本不超过这些预分配的成本总和。记账法类似于一种费用前置支付的机制，其中较低成本的操作会存储部分费用，以支付未来高成本的操作。</p>
+<p>以动态数组为例，可以为每次插入操作分配一个固定的均摊成本，以确保在需要扩容时已经预留了足够的费用。</p>
+<ol>
+<li>费用分配：</li>
+<li>假设每次插入操作的实际成本为 <span class="arithmatex">\(1\)</span>，均摊成本设为 <span class="arithmatex">\(3\)</span>。</li>
+<li>
+<p>其中 <span class="arithmatex">\(1\)</span> 用于当前插入操作，<span class="arithmatex">\(2\)</span> 用于未来可能的扩容操作。</p>
+</li>
+<li>
+<p>费用使用：</p>
+</li>
+<li>当数组已满时，需要进行扩容操作，实际成本为 <span class="arithmatex">\(O(m)\)</span>，其中 <span class="arithmatex">\(m\)</span> 是当前数组的大小。</li>
+<li>假设扩容前数组的元素数量为 <span class="arithmatex">\(n\)</span>，由于原数组的后半部分 <span class="arithmatex">\(n/2\)</span> 个元素在插入时共预存了 <span class="arithmatex">\(n\)</span> 单位的均摊成本，恰好足够支付扩容操作的成本。</li>
+</ol>
+<p>以下是一个具体的示例：</p>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">初始状态</span><span class="err">：</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">arr</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w">  </span><span class="c1">// 初始数组</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">  </span><span class="c1">// 每个元素预存的费用</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="c1">// 第一轮扩容：数组已满，需要扩容</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="n">arr</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">]</span><span class="w">  </span><span class="c1">// 扩容后数组</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w">  </span><span class="c1">// 3, 4的费用用于支付扩容</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1">// 继续插入新元素，直至再次满载</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">arr</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">  </span><span class="c1">// 继续填充数组</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">  </span><span class="c1">// 新插入的元素同样预存费用</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="c1">// 第二轮扩容：数组再次满载，需要更大的空间</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="n">arr</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">]</span><span class="w">  </span><span class="c1">// 扩容后数组</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w">  </span><span class="c1">// 5, 6, 7, 8的费用用于支付扩容</span>
+</span></code></pre></div></td></tr></table></div>
+<p>以上过程表明，每次插入操作所存储的均摊成本足够支付未来的扩容操作，从而确保了每次操作的均摊成本维持在 <span class="arithmatex">\(O(1)\)</span>。</p>
+<h3 id="_11">势能分析</h3>
+<p><strong>势能分析（Potential Method）</strong>通过定义一个势能函数（通常表示为 <span class="arithmatex">\(\Phi\)</span>），度量数据结构的潜在能量，即系统状态中的预留资源，这些资源可以用来支付未来的高成本操作。势能的变化用于平衡操作序列的总成本，从而确保整个算法的均摊成本在合理范围内。</p>
+<p>首先，定义<strong>状态</strong><span class="arithmatex">\(S\)</span>为某一时刻数据结构的状态，该状态可能包含元素数量、容量、指针等信息，其中定义初始状态为 <span class="arithmatex">\(S_0\)</span>，即未进行任何操作时的状态。</p>
+<p>其次，定义<strong>势能函数</strong> <span class="arithmatex">\(\Phi(S)\)</span> 用于度量数据结构状态 <span class="arithmatex">\(S\)</span> 的势能，其满足以下两个性质：</p>
+<ol>
+<li><strong>初始势能</strong>：在数据结构的初始状态 <span class="arithmatex">\(S_0\)</span> 下，势能 <span class="arithmatex">\(\Phi(S_0) = 0\)</span>。</li>
+<li><strong>非负性</strong>：在任意状态 <span class="arithmatex">\(S\)</span> 下，势能 <span class="arithmatex">\(\Phi(S) \geq 0\)</span>。</li>
+</ol>
+<p>对于每个操作，其<strong>均摊成本</strong> <span class="arithmatex">\(\hat{c}\)</span> 定义为：</p>
+<div class="arithmatex">\[
+\hat{c} = c + \Phi(S') - \Phi(S)
+\]</div>
+<p>其中 <span class="arithmatex">\(c\)</span> 为操作的实际成本，<span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(S'\)</span> 分别表示操作前后的数据结构状态。该公式表明，均摊成本等于实际成本加上势能的变化。如果操作增加了势能（即 <span class="arithmatex">\(\Phi(S') &gt; \Phi(S)\)</span>），则均摊成本上升；如果操作消耗了势能（即 <span class="arithmatex">\(\Phi(S') &lt; \Phi(S)\)</span>），则均摊成本下降。</p>
+<p>我们可以通过势能函数来分析一系列操作的总成本。设 <span class="arithmatex">\(S_1, S_2, \dots, S_m\)</span> 为从初始状态 <span class="arithmatex">\(S_0\)</span> 开始，经过 <span class="arithmatex">\(m\)</span> 次操作后产生的状态序列，<span class="arithmatex">\(c_i\)</span> 为第 <span class="arithmatex">\(i\)</span> 次操作的实际开销，那么第 <span class="arithmatex">\(i\)</span> 次操作的均摊成本 <span class="arithmatex">\(p_i\)</span> 为：</p>
+<div class="arithmatex">\[
+p_i = c_i + \Phi(S_i) - \Phi(S_{i-1})
+\]</div>
+<p>因此，<span class="arithmatex">\(m\)</span> 次操作的总时间花销为：</p>
+<div class="arithmatex">\[
+\sum_{i=1}^m c_i = \sum_{i=1}^m p_i + \Phi(S_0) - \Phi(S_m)
+\]</div>
+<p>由于 <span class="arithmatex">\(\Phi(S) \geq \Phi(S_0)\)</span>，总时间花销的上界为：</p>
+<div class="arithmatex">\[
+\sum_{i=1}^m p_i \geq \sum_{i=1}^m c_i
+\]</div>
+<p>因此，若 <span class="arithmatex">\(p_i = O(T(n))\)</span>，则 <span class="arithmatex">\(O(T(n))\)</span> 是均摊复杂度的一个上界。</p>
+<p>以动态数组 <code>vector</code> 的插入操作为例，定义如下的势能函数 <span class="arithmatex">\(\Phi(h)\)</span>：</p>
+<div class="arithmatex">\[
+\Phi(h) = 2n - m
+\]</div>
+<p>其中，<span class="arithmatex">\(n\)</span> 是数组中的元素数量，<span class="arithmatex">\(m\)</span> 是数组的当前容量。这个势能函数反映了数组中剩余可用空间的数量，即当前容量和实际使用空间之间的差异。</p>
+<ol>
+<li>
+<p><strong>插入操作（无需扩容）</strong>：</p>
+<ul>
+<li><strong>操作成本</strong>：<span class="arithmatex">\(O(1)\)</span>，因为只需插入一个元素。</li>
+<li><strong>势能变化</strong>：插入后，元素数量增加 1，势能增加 <span class="arithmatex">\(2\)</span>。<ul>
+<li><span class="arithmatex">\(\Phi(h') - \Phi(h) = 2(n + 1) - m - (2n - m) = 2\)</span></li>
+</ul>
+</li>
+<li><strong>均摊成本</strong>：<span class="arithmatex">\(1 + 2 = 3\)</span></li>
+</ul>
+</li>
+<li>
+<p><strong>插入操作（触发扩容）</strong>：</p>
+<ul>
+<li>假设当前容量 <span class="arithmatex">\(m = n\)</span>，插入一个新元素时触发扩容，新的容量变为 <span class="arithmatex">\(2n\)</span>。</li>
+<li><strong>操作成本</strong>：<span class="arithmatex">\(O(n)\)</span>，因为需要将所有元素复制到新数组中，并插入新元素。</li>
+<li><strong>势能变化</strong>：扩容后，容量增加，势能减少，变化大小为 <span class="arithmatex">\(2 - n\)</span>。<ul>
+<li><span class="arithmatex">\(\Phi(h') - \Phi(h) = 2(n + 1) - 2n - (2n - n) = 2 - n\)</span></li>
+</ul>
+</li>
+<li><strong>均摊成本</strong>：<span class="arithmatex">\(n + 1 + (2 - n) = 3\)</span></li>
+</ul>
+</li>
+</ol>
+<p>通过上述分析可以看出，尽管扩容操作的实际成本较高，但由于势能函数的设计，整体均摊成本仍然保持在常数级别 <span class="arithmatex">\(O(1)\)</span>。</p>
+<h2 id="_12">算法思想</h2>
+<h3 id="_13">枚举</h3>
+<p><strong>枚举（Enumerate）</strong>也称为穷举，是基于已有知识来猜测答案的一种问题求解策略。枚举的思想是不断地猜测，从可能的集合中一一尝试，然后再判断问题的条件是否成立。枚举是最普遍最易用的方法，但它也在处理大部分问题时效率远不如其它算法。</p>
+<h3 id="_14">模拟</h3>
+<p><strong>模拟（Simulation）</strong>就是用计算机来模拟问题中要求的操作，通常具有码量大、操作多、思路繁复的特点。由于它码量大，经常会出现难以查错的情况。</p>
+<h3 id="_15">递归</h3>
+<p><strong>递归（Recursion）</strong>在数学和计算机科学中是指在函数的定义中使用函数自身的方法，在计算机科学中还额外指一种通过重复将问题分解为同类的子问题而解决问题的方法。递归的基本思想是某个函数直接或者间接地调用自身，这样原问题的求解就转换为了许多性质相同但是规模更小的子问题。求解时只需要关注如何把原问题划分成符合条件的子问题，而不需要过分关注这个子问题是如何被解决的。</p>
+<p>在程序执行中，递归是利用堆栈来实现的。每当进入一个函数调用，栈就会增加一层栈帧，每次函数返回，栈就会减少一层栈帧。而栈不是无限大的，当递归层数过多时，就会造成栈溢出的后果。显然有时候递归处理是高效的，比如归并排序；有时候是低效的，因为堆栈会消耗额外空间，而简单的递推不会消耗空间。</p>
+<p>尾递归是指一个函数在调用自身之后不再执行任何其他操作，而是将返回值直接传递给函数调用的上级，从而避免了新的调用栈帧的创建。换句话说，尾递归是指递归调用发生在函数的最后一个语句中，从而使得函数调用不需要保存多个调用栈帧，而只需一个即可。理论上递归都可以改成循环的形式，尤其尾递归可以以固定的模式转换。</p>
+<h3 id="_16">分治</h3>
+<p><strong>分治（Divide and Conquer）</strong>字面上的解释是“分而治之”，就是把一个复杂的问题分成两个或更多的相同或相似的子问题，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。如果各子问题是不独立的，则分治法要重复地解公共的子问题，也就做了许多不必要的工作。此时虽然也可用分治法，但一般使用动态规划的效果更好。</p>
+<p>枚举是横向地把问题划分，然后依次求解子问题；而递归是把问题逐级分解，是纵向的拆分。递归是一种编程技巧，一种解决问题的思维方式；分治算法很大程度上是基于递归的，解决更具体问题的算法思想。</p>
+<h3 id="_17">贪心</h3>
+<p><strong>贪心（Greedy）</strong>是用计算机来模拟一个“贪心”的人做出决策的过程。这个人十分贪婪，每一步行动总是按某种指标选取最优的操作。而且他目光短浅，总是只看眼前，并不考虑以后可能造成的影响。可想而知，并不是所有的时候贪心法都能获得最优解，所以一般使用贪心算法的时候，都要确保自己能证明其正确性。</p>
+<p>贪心算法在有最优子结构的问题中尤为有效。最优子结构的意思是问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解。</p>
+<p>最常见的贪心有两种，一种是排序型，用排序法常见的情况是输入一个包含几个（一般一到两个）权值的数组，通过排序然后遍历模拟计算的方法求出最优值。另一种是后悔型，思路是无论当前的选项是否最优都接受，然后进行比较，如果选择之后不是最优了，则反悔，舍弃掉这个选项；否则，正式接受。如此往复。二者的区别在于一种是离线的，先处理后选择；一种是在线的，边处理边选择。</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>该节的部分内容（渐进复杂度的性质、主定理及其证明等）选取自<a href="https://oi-wiki.org/basic/complexity/">OI Wiki</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>该节内容选取自<a href="https://oi-wiki.org/basic/amortized-analysis/">OI Wiki</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../DataStructures/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 数据结构">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                数据结构
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../LinearStructures/" class="md-footer__link md-footer__link--next" aria-label="下一页: 线性结构">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                线性结构
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 - 2025 AGSN <br> Made with Material for MkDocs
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/liveldy" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "toc.integrate", "search.suggest", "search.highlight", "search.share", "header.autohide", "announce.dismiss", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate", "content.tabs.link", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

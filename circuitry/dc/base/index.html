@@ -1,0 +1,1823 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="数字逻辑基础">
+      
+      
+        <meta name="author" content="AGSN">
+      
+      
+        <link rel="canonical" href="https://liveldy.github.io/Wiki/circuitry/dc/base/">
+      
+      
+        <link rel="prev" href="../../../dsa/Dp/">
+      
+      
+        <link rel="next" href="../clc/">
+      
+      
+      <link rel="icon" href="../../../assets/logo.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>数字逻辑基础 - 哀歌殇年的维基百科</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M22%2012a10%2010%200%200%201-10%2010A10%2010%200%200%201%202%2012%2010%2010%200%200%201%2012%202a10%2010%200%200%201%2010%2010M6%2013h8l-3.5%203.5%201.42%201.42L17.84%2012l-5.92-5.92L10.5%207.5%2014%2011H6z%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="哀歌殇年的维基百科" class="md-header__button md-logo" aria-label="哀歌殇年的维基百科" data-md-component="logo">
+      
+  <img src="../../../assets/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            哀歌殇年的维基百科
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数字逻辑基础
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="智能模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="智能模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="亮色模式" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="暗色模式"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="暗色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/liveldy/Wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    liveldy/Wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../os/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  操作系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../language/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  程序设计语言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../dsa/DataStructures/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数据结构与算法
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  电子电路
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../mcu/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  嵌入式开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../project" class="md-tabs__link">
+          
+  
+  
+    
+  
+  个人项目集锦
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="哀歌殇年的维基百科" class="md-nav__button md-logo" aria-label="哀歌殇年的维基百科" data-md-component="logo">
+      
+  <img src="../../../assets/logo.jpg" alt="logo">
+
+    </a>
+    哀歌殇年的维基百科
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/liveldy/Wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    liveldy/Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    主页
+    
+      <br>
+      <small>主页</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../os/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    操作系统
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../language/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    程序设计语言
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../dsa/DataStructures/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    电子电路
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            电子电路
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    数字电子技术
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            数字电子技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    数字逻辑基础
+    
+      <br>
+      <small>逻辑代数</small>
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    数字逻辑基础
+    
+      <br>
+      <small>逻辑代数</small>
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑变量与运算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="逻辑变量与运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本逻辑运算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      复合逻辑运算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑代数公式与定理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="逻辑代数公式与定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本公式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用公式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本定理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑函数及其表示方式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="逻辑函数及其表示方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑真值表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑函数式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑图
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑函数的标准形式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="逻辑函数的标准形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      最小项之和
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      最大项之积
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑函数的公式化简法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="逻辑函数的公式化简法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      并项法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      吸收法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      消去法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      配项法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑函数的卡诺图化简
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="逻辑函数的卡诺图化简">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      卡诺图及化简
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      具有无关项的卡诺图化简
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑函数的变换与实现
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑函数的Q-M化简
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    组合逻辑电路
+    
+      <br>
+      <small>逻辑门电路、组合逻辑电路及应用</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    时序逻辑电路
+    
+      <br>
+      <small>触发器、脉冲波形电路、时序逻辑电路</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    模拟电子技术
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            模拟电子技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ac/base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    半导体器件
+    
+      <br>
+      <small>二极管、三极管和场效应管</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../mcu/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    嵌入式开发
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../project" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    个人项目集锦
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/liveldy/Wiki/edit/main/docs/circuitry/dc/base.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/liveldy/Wiki/raw/main/docs/circuitry/dc/base.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="_1">数字逻辑基础</h1>
+<h2 id="_2">逻辑变量与运算</h2>
+<p><strong>逻辑变量</strong>（也称为 <abbr title="乔治·布尔（George Boole，1815.11.2~1864.12.8），1815年11月2日生于英格兰的林肯。19世纪最重要的数学家之一，出版了《逻辑的数学分析》，这是他对符号逻辑的第一次贡献。1854年，他出版了《思维规律的研究》，这是他最著名的著作。在这本书中布尔介绍了以他的名字命名的布尔代数。">布尔</abbr> 变量）用于描述客观事物对立统一的两个方面。<strong>逻辑代数</strong>中常用单个大写字母或者单个大写字母加下标表示逻辑变量。在二值逻辑中，每个逻辑变量只有0和1两种可能，0和1不在具有数值意义，而是表示两种不同的逻辑状态（真和假）。</p>
+<h3 id="_3">基本逻辑运算</h3>
+<table>
+<thead>
+<tr>
+<th>运算名称</th>
+<th>运算符号</th>
+<th>图形符号</th>
+<th>真值表</th>
+<th>运算特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>逻辑与（乘）<br>AND</td>
+<td><span class="arithmatex">\(Y=A\cdot B=AB\)</span></td>
+<td><img alt="AND" src="../../../images/and.png" /></td>
+<td>A 0 0 1 1<br>B 0 1 0 1<br>Y 0 0 0 1</td>
+<td>有假为假，全真为真</td>
+</tr>
+<tr>
+<td>逻辑或（加）<br>OR</td>
+<td><span class="arithmatex">\(Y=A+B\)</span></td>
+<td><img alt="OR" src="../../../images/or.png" /></td>
+<td>A 0 0 1 1<br>B 0 1 0 1<br>Y 0 1 1 1</td>
+<td>有真为真，全假为假</td>
+</tr>
+<tr>
+<td>逻辑非（求反）<br>NOT</td>
+<td><span class="arithmatex">\(Y=\overline{A}\)</span></td>
+<td><img alt="NOT" src="../../../images/not.png" /></td>
+<td>A 0 1<br>Y 1 0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">复合逻辑运算</h3>
+<table>
+<thead>
+<tr>
+<th>运算名称</th>
+<th>运算符号</th>
+<th>图形符号</th>
+<th>真值表</th>
+<th>运算特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>逻辑与非<br>NAND</td>
+<td><span class="arithmatex">\(Y=\overline{A\cdot B}=\overline{AB}\)</span></td>
+<td><img alt="NAND" src="../../../images/nand.png" /></td>
+<td>A 0 0 1 1<br>B 0 1 0 1<br>Y 1 1 1 0</td>
+<td>有假为真，全真为假</td>
+</tr>
+<tr>
+<td>逻辑或非<br>NOR</td>
+<td><span class="arithmatex">\(Y=\overline{A+B}\)</span></td>
+<td><img alt="NOR" src="../../../images/nor.png" /></td>
+<td>A 0 0 1 1<br>B 0 1 0 1<br>Y 1 0 0 0</td>
+<td>有真为假，全假为真</td>
+</tr>
+<tr>
+<td>逻辑与或非<br>AON</td>
+<td><span class="arithmatex">\(Y=\overline{AB+CD}\)</span></td>
+<td><img alt="AON" src="../../../images/aon.png" /></td>
+<td></td>
+<td>先与再或后非</td>
+</tr>
+<tr>
+<td>逻辑异或<br>XOR</td>
+<td><span class="arithmatex">\(Y=A\cdot \overline{B}+\overline{A}\cdot B=A\oplus B\)</span></td>
+<td><img alt="XOR" src="../../../images/xor.png" /></td>
+<td>A 0 0 1 1<br>B 0 1 0 1<br>Y 0 1 1 0</td>
+<td>不同为真，相同为假</td>
+</tr>
+<tr>
+<td>逻辑同或<br>NXOR</td>
+<td><span class="arithmatex">\(Y=A\cdot B+\overline{A}\cdot \overline{B}=A\odot B\)</span></td>
+<td><img alt="NXOR" src="../../../images/nor.png" /></td>
+<td>A 0 0 1 1<br>B 0 1 0 1<br>Y 1 0 0 1</td>
+<td>不同为假，相同为真</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">逻辑代数公式与定理</h2>
+<h3 id="_6">基本公式</h3>
+<p>基本公式又称<strong>布尔恒等式</strong>，它们反映了逻辑代数运算的基本规律，其正确性都可以用列逻辑真值表的方式加以验证。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>公式1</th>
+<th>公式2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>零一律</td>
+<td><span class="arithmatex">\(A\cdot 1=A\)</span><br><span class="arithmatex">\(A\cdot 0=0\)</span></td>
+<td><span class="arithmatex">\(A+0=A\)</span><br><span class="arithmatex">\(A+1=1\)</span></td>
+</tr>
+<tr>
+<td>互补律</td>
+<td><span class="arithmatex">\(A\overline{A}=0\)</span></td>
+<td><span class="arithmatex">\(A+\overline{A}=1\)</span></td>
+</tr>
+<tr>
+<td>重叠律</td>
+<td><span class="arithmatex">\(AA=A\)</span></td>
+<td><span class="arithmatex">\(A+A=A\)</span></td>
+</tr>
+<tr>
+<td>交换律</td>
+<td><span class="arithmatex">\(AB=BA\)</span></td>
+<td><span class="arithmatex">\(A+B=B+A\)</span></td>
+</tr>
+<tr>
+<td>结合律</td>
+<td><span class="arithmatex">\(A(BC)=(AB)C\)</span></td>
+<td><span class="arithmatex">\(A+(B+C)=(A+B)+C\)</span></td>
+</tr>
+<tr>
+<td>分配律</td>
+<td><span class="arithmatex">\(A(B+C)=AB+AC\)</span></td>
+<td><span class="arithmatex">\(A+BC=(A+B)(A+C)\)</span></td>
+</tr>
+<tr>
+<td>反演律<br>（ <abbr title="奥古斯都·德·摩根(Augustus De Morgan，1806~1871)，明确称述了德·摩根定律，将数学归纳法严格化。">德·摩根</abbr> 定律）</td>
+<td><span class="arithmatex">\(\overline{AB}=\overline{A}+\overline{B}\)</span></td>
+<td><span class="arithmatex">\(\overline{A+B}=\overline{A}\ \overline{B}\)</span></td>
+</tr>
+<tr>
+<td>对合律<br>（还原律）</td>
+<td><span class="arithmatex">\(\overline{\overline{A}}=A\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">常用公式</h3>
+<p>常用公式是利用基本公式导出的，在逻辑函数的化简可以直接使用。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>公式1</th>
+<th>公式2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>吸收律</td>
+<td><span class="arithmatex">\(A(A+B)=A\)</span><br><span class="arithmatex">\(A(\overline{A}+B)=AB\)</span><br><span class="arithmatex">\((A+B)(\overline{A}+C)(B+C)=(A+B)(\overline{A}+C)\)</span></td>
+<td><span class="arithmatex">\(A+AB=A\)</span><br><span class="arithmatex">\(A+\overline{A}B=A+B\)</span><br><span class="arithmatex">\(AB+\overline{A}C+BC=AB+\overline{A}C\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">基本定理</h3>
+<p><strong>代入定理</strong>：在任何一个含义某个变量的等式中，若用另外一个逻辑式代入式中所有这个变量的位置，则等式仍然成立。</p>
+<p><strong>反演定理</strong>：对于任意一个逻辑式<span class="arithmatex">\(Y\)</span>，若将其中所有的“·”换成“+”、“+”换成“·”、0换成1、1换成0、原变量换成反变量、反变量换成原变量，则得到的结果就是<span class="arithmatex">\(\overline{Y}\)</span>。</p>
+<p>对于任意一个逻辑式<span class="arithmatex">\(Y\)</span>，若将其中所有的“·”换成“+”、“+”换成“·”、0换成1、1换成0，则得到的结果就是<span class="arithmatex">\(Y^{\prime}\)</span>。<span class="arithmatex">\(Y^{\prime}\)</span>称为<span class="arithmatex">\(Y\)</span>的<strong>对偶式</strong>。</p>
+<p><strong>对偶定理</strong>：若两逻辑式相等，则它们的对偶式也相等。</p>
+<p>在上面基本公式表和常用公式表中，公式1和公式2就是一对对偶式，显然由对偶定理可得，公式1成立，则公式2也成立。</p>
+<h2 id="_9">逻辑函数及其表示方式</h2>
+<p>如果以逻辑变量<span class="arithmatex">\(A\)</span>、<span class="arithmatex">\(B\)</span>、<span class="arithmatex">\(C\)</span>、...作为输入，以运算结果逻辑变量<span class="arithmatex">\(Y\)</span>作为输出，那么当输入变量的取值确定后，输出的取值便唯一确定，输入与输出之间是一种函数关系，称<span class="arithmatex">\(Y\)</span>是<span class="arithmatex">\(A\)</span>、<span class="arithmatex">\(B\)</span>、<span class="arithmatex">\(C\)</span>、...的<strong>逻辑函数</strong>。即</p>
+<div class="arithmatex">\[
+Y=F(A,B,C,...)
+\]</div>
+<p>下面以“三人表决电路（少数服从多数）”为例说明表示方式。</p>
+<h3 id="_10">逻辑真值表</h3>
+<p>将输入变量的所有取值组合所对应的输出值找出来，列成表格，即可得到<strong>逻辑真值表</strong>，简称真值表。</p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_11">逻辑函数式</h3>
+<p>把输入与输出之间的关系写成与、或、非等运算的组合式，即得到了该逻辑关系的<strong>逻辑函数式</strong>。</p>
+<div class="arithmatex">\[
+Y=\overline{A}BC+A\overline{B}C+AB\overline{C}+ABC
+\]</div>
+<h3 id="_12">逻辑图</h3>
+<p>将逻辑函数中各变量之间的与、或、非关系用图形符号表示出来，就可以画出表示逻辑关系的<strong>逻辑图</strong>。</p>
+<p><img alt="三人表决电路" src="../../../images/3-people-logic-graph.png" /></p>
+<h2 id="_13">逻辑函数的标准形式</h2>
+<h3 id="_14">最小项之和</h3>
+<p>在<span class="arithmatex">\(n\)</span>变量的逻辑函数中，若<span class="arithmatex">\(m\)</span>是包含<span class="arithmatex">\(n\)</span>个因子的乘积项，这<span class="arithmatex">\(n\)</span>个变量均以原变量或反变量的形式在<span class="arithmatex">\(m\)</span>中出现且只出现一次，则称<span class="arithmatex">\(m\)</span>为这组变量的<strong>最小项</strong>。最小项的个数为<span class="arithmatex">\(2^n\)</span>个。输入变量的每一组取值都使对应的一个最小项逻辑值等于1，将这一组取值组合为二进制数，其对应的十进制数<span class="arithmatex">\(i\)</span>作为这个最小项的标记的下标<span class="arithmatex">\(m_i\)</span>。</p>
+<p>最小项有如下性质：</p>
+<ol>
+<li>在输入变量的任意取值下必有一个最小项，有且仅有一个最小项的值为1。</li>
+<li>全体最小项之和为1。</li>
+<li>任意两个最小项的积为0。</li>
+<li>具有逻辑相邻性的两个最小项之和可以合并成一项并消去一对因子。</li>
+</ol>
+<p>若两个最小项只有一个因子不同，则称这两个最小项具有<strong>逻辑相邻性</strong>。</p>
+<p>利用<span class="arithmatex">\(A+\overline{A}=1\)</span>可以把任何一个逻辑函数化为<strong>最小项之和</strong>的标准形式。</p>
+<h3 id="_15">最大项之积</h3>
+<p>在<span class="arithmatex">\(n\)</span>变量的逻辑函数中，若<span class="arithmatex">\(M\)</span>是包含<span class="arithmatex">\(n\)</span>个变量的和，这<span class="arithmatex">\(n\)</span>个变量均以原变量或反变量的形式在<span class="arithmatex">\(M\)</span>中出现且只出现一次，则称<span class="arithmatex">\(M\)</span>为这组变量的<strong>最大项</strong>。最大项的个数为<span class="arithmatex">\(2^n\)</span>个。输入变量的每一组取值都使对应的一个最大项逻辑值等于0，将这一组取值组合为二进制数，其对应的十进制数<span class="arithmatex">\(i\)</span>作为这个最大项的标记的下标<span class="arithmatex">\(M_i\)</span>。</p>
+<p>最大项有如下性质：</p>
+<ol>
+<li>在输入变量的任意取值下必有一个最大项，有且仅有一个最大项的值为0。</li>
+<li>全体最大项之积为0。</li>
+<li>任意两个最大项的和为1。</li>
+<li>只有一个变量不同的两个最大项的乘积等于个相同变量之和。</li>
+<li>相同下标的最大项和最小项的反变量相等，即：</li>
+</ol>
+<div class="arithmatex">\[
+M_i=\overline{m_i}
+\]</div>
+<p>利用性质5可以把任何一个逻辑函数化为<strong>最大项之积</strong>的标准形式。</p>
+<h2 id="_16">逻辑函数的公式化简法</h2>
+<p>逻辑函数的<strong>最简与-或逻辑式</strong>（即“积之和”形式）中，要求与项尽可能少，每个与项中的变量数尽可能少。</p>
+<h3 id="_17">并项法</h3>
+<p>利用零一律<span class="arithmatex">\(A+\overline{A}=1\)</span>,可以将两项合为一项，并消去<span class="arithmatex">\(A\)</span>和<span class="arithmatex">\(\overline{A}\)</span>这一对因子。由代入定理可知，<span class="arithmatex">\(A\)</span>可以是任意复杂的逻辑式。</p>
+<h3 id="_18">吸收法</h3>
+<p>利用吸收律<span class="arithmatex">\(A+AB=A\)</span>,可以将<span class="arithmatex">\(AB\)</span>消去。由代入定理可知，<span class="arithmatex">\(A\)</span>和<span class="arithmatex">\(B\)</span>都可以是任意复杂的逻辑式。</p>
+<h3 id="_19">消去法</h3>
+<p>利用吸收律<span class="arithmatex">\(A+\overline{A}B=A+B\)</span>，消去多余因子。由代入定理可知，<span class="arithmatex">\(A\)</span>和<span class="arithmatex">\(B\)</span>都可以是任意复杂的逻辑式。</p>
+<h3 id="_20">配项法</h3>
+<p>由于互补律<span class="arithmatex">\(A\overline{A}=0\)</span>和<span class="arithmatex">\(A+\overline{A}=1\)</span>，可以通过加上<span class="arithmatex">\(A\overline{A}\)</span>或乘以<span class="arithmatex">\(A+\overline{A}\)</span>，有时会使得化简更容易。</p>
+<h2 id="_21">逻辑函数的卡诺图化简</h2>
+<h3 id="_22">卡诺图及化简</h3>
+<p>将<span class="arithmatex">\(n\)</span>变量的逻辑函数的全部最小项各用一个小方块表示，并使具有逻辑相邻性的最小项在几何位置上也相邻地排列起来，所得的图形称为<span class="arithmatex">\(n\)</span>变量的<strong> <abbr title="莫里斯·卡诺（Maurice Karnaugh，1924~），1952年至1966年，在贝尔实验室工作，开发了“卡诺图”。1976年当选为IEEE院士。">卡诺</abbr> 图</strong>。</p>
+<p><img alt="卡诺图" src="../../../images/kanuo.png" /></p>
+<p>由于卡诺图几何位置相邻与逻辑上相邻一致，所以几何位置相邻的最小项可以合并。合并只剩下公共因子。<span class="arithmatex">\(2^n\)</span>个相邻的最小项结合，可以消去<span class="arithmatex">\(n\)</span>个取值不同的变量而合并为1项。</p>
+<p>卡诺图化简的一般选取原则：</p>
+<ol>
+<li>用卡诺图化简逻辑函数时，每一个最小项必须被圈，不能遗漏</li>
+<li>某一个最小项可以多次被圈，但是每次被圈时，圈内至少包含一个新的最小项。</li>
+<li>圈的个数要尽可能少，圈的大小要尽可能大。</li>
+<li>每个圈内只能有<span class="arithmatex">\(2^n\)</span>个最小项，注意四角相邻性和对边相邻性。</li>
+<li>有时圈0更方便，但得到的化简结果是原函数的反函数。</li>
+</ol>
+<h3 id="_23">具有无关项的卡诺图化简</h3>
+<p>逻辑函数中不会出现或不允许出现的最小项称为<strong>约束项</strong>。在某些输入变量的取值下，函数值为1还是为0，都不会影响电路的功能，这些取值等于1的最小项称为<strong>任意项</strong>，任意项通常由实际应用环境决定。约束项和任意项通称为<strong>无关项</strong>。</p>
+<p>在填卡诺图时，无关项使用“×”表示，在化简逻辑函数时，可以将其看作1或0，但至于看作1还是0，要尽可能为了圈的大小大，圈的个数少考虑。</p>
+<h2 id="_24">逻辑函数的变换与实现</h2>
+<p>逻辑函数的常用表示方法除了<strong>与-或式</strong>外，还有<strong>与非-与非式</strong>、<strong>或-与式</strong>、<strong>或非-或非式</strong>、<strong>与或非式</strong>。通过不同的表示，在实现为实际电路时，可以在限定器件或者其它情况下灵活运用。</p>
+<table>
+<thead>
+<tr>
+<th>变换</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>与-或式变换为与非-与非式</td>
+<td>按还原律两次取反，然后用反演律展开</td>
+</tr>
+<tr>
+<td>与-或式变换为或-与式</td>
+<td>1.使用<span class="arithmatex">\(M_i=\overline{m_i}\)</span>，但得到的结果不一定最简<br>2.根据对偶定理两次取对偶式，能够得到最简</td>
+</tr>
+<tr>
+<td>与-或式变换为或非-或非式</td>
+<td>先将与-或式变换为或-与式，再按还原律两次取反，然后用反演律展开</td>
+</tr>
+<tr>
+<td>与-或式变换为与或非式</td>
+<td>先求“最小项之和”形式，再求反函数的与-或形式，最后取反</td>
+</tr>
+</tbody>
+</table>
+<h2 id="q-m">逻辑函数的Q-M化简</h2>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../../../dsa/Dp/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 动态规划">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                动态规划
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../clc/" class="md-footer__link md-footer__link--next" aria-label="下一页: 组合逻辑电路">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                组合逻辑电路
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 - 2025 AGSN <br> Made with Material for MkDocs
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/liveldy" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "toc.integrate", "search.suggest", "search.highlight", "search.share", "header.autohide", "announce.dismiss", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate", "content.tabs.link", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
